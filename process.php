@@ -1,7 +1,13 @@
 <?php
 require_once('config.php');
 ?>
+
 <?php
+$target_dir = "uploads/";
+$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+$uploadOk = 1;
+$fileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
 
 if(isset($_POST)){
 
@@ -24,15 +30,17 @@ if(isset($_POST)){
 	$jobduty       	    	= $_POST['jobduty'];
 	$workedyear       	    = $_POST['workedyear'];
 
-		$sql = "INSERT INTO users (firstname, lastname, email, phonenumber, password, address, city, province, country, school, program, educationlevel, educationstatus, graduationdate, employer, jobtitle, jobduty, workedyear ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		$stmtinsert = $db->prepare($sql);
+	$sql = "INSERT INTO users (firstname, lastname, email, phonenumber, password, address, city, province, country, school, program, educationlevel, educationstatus, graduationdate, employer, jobtitle, jobduty, workedyear ) VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-		$result = $stmtinsert->execute([$firstname, $lastname, $email, $phonenumber, $password, $address, $city, $province, $country, $school, $program, $educationlevel, $educationstatus, $graduationdate, $employer, $jobtitle, $jobduty, $workedyear]);
+	$stmtinsert = $db->prepare($sql);
 
-		if($result){
+	$result = $stmtinsert->execute([$firstname, $lastname, $email, $phonenumber, $password, $address, $city, $province, $country, $school, $program, $educationlevel, $educationstatus, $graduationdate, $employer, $jobtitle, $jobduty, $workedyear]);
+
+	if($result){
 			echo 'Successfully saved.';
-		}else{
+	}
+	else{
 			echo 'There were erros while saving the data.';
 		}
 }else{

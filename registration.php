@@ -17,7 +17,7 @@ require_once('config.php');
 	</div>
 
 	<div>
-		<form action="registration.php" method="post">
+		<form action="registration.php" method="post" enctype="multipart/form-data">
 			<div class="container">
 				
 				<div class="row">
@@ -127,6 +127,8 @@ require_once('config.php');
   						<label for="workedyear"><b>Worked Year</b></label>
 					 	<input class="form-control" id="workedyear" type="number" name="workedyear"> <br>
 
+						<label for="fileToUpload">Select files: </label>
+  						<input type="file" name="fileToUpload" id="fileToUpload"><br><br>
 
 						<br>
 					 	<input class="btn btn-outline-danger" type="reset" value="Reset">
