@@ -1,6 +1,3 @@
-<?php
-require_once('config.php');
-?>
 <!DOCTYPE html>
 <html>
 
@@ -11,13 +8,7 @@ require_once('config.php');
 	<body>
 
 	<div>
-		<?php
-		
-		?>	
-	</div>
-
-	<div>
-		<form action="registration.php" method="post" enctype="multipart/form-data">
+		<form action="process.php" method="post" enctype="multipart/form-data">
 			<div class="container">
 				
 				<div class="row">
@@ -133,7 +124,7 @@ require_once('config.php');
 						<br>
 					 	<input class="btn btn-outline-danger" type="reset" value="Reset">
 				
-						<input class="btn btn-outline-success" type="submit" id="register" name="create" value="Apply">
+						<input class="btn btn-outline-success" type="submit" name="create" value="Apply">
 						<br>
 					 	<br>
 					 	<br>
@@ -144,65 +135,5 @@ require_once('config.php');
 			</div>
 		</form>
 	</div>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-	<script type="text/javascript">
-		$(function(){
-			$('#register').click(function(e){
-
-				var valid = this.form.checkValidity();
-
-				if(valid){
-
-
-				var firstname 		     = $('#firstname').val();
-				var lastname		     = $('#lastname').val();
-				var email 			     = $('#email').val();
-				var phonenumber 	     = $('#phonenumber').val();
-				var password 		     = $('#password').val();
-				var address 		     = $('#address').val();
-				var city 	    	     = $('#city').val();
-				var province       	     = $('#province').val();
-				var country     	     = $('#country').val();
-				var school      	     = $('#school').val();
-				var program              = $('#program').val();
-				var educationlevel       = $('#educationlevel').val();
-				var educationstatus      = $('#educationstatus').val();
-				var graduationdate       = $('#graduationdate').val();
-				var employer             = $('#employer').val();
-				var jobtitle             = $('#jobtitle').val();
-				var jobduty              = $('#jobduty').val();
-				var workedyear           = $('#workedyear').val();
-				
-
-					e.preventDefault();	
-
-					$.ajax({
-						type: 'POST',
-						url: 'process.php',
-						data: {firstname: firstname,lastname: lastname,email: email,phonenumber: phonenumber,password: password, address: address, city: city, province: province, country: country, school: school, program: program, educationlevel: educationlevel, educationstatus: educationstatus, graduationdate: graduationdate, employer: employer, jobtitle: jobtitle, jobduty: jobduty, workedyear: workedyear},
-						success: function(data){
-						Swal.fire({
-									'title': 'Successful',
-									'text': data,
-									'type': 'success'
-									})
-								
-						},
-						error: function(data){
-							Swal.fire({
-									'title': 'Errors',
-									'text': 'There were errors while saving the data.',
-									'type': 'error'
-									})
-						}
-					});
-
-					
-				}
-			});				
-		});
-		
-	</script>
 	</body>
 </html>
