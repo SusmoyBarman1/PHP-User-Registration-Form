@@ -91,7 +91,8 @@ require_once('config.php');
 		{
 		    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) 
 		    {
-		        echo "\nYou are registered!";
+		        //echo "\nYou are registered!";
+		    	header('location:displayUsers.php');
 		    } 
 		    else 
 		    {
