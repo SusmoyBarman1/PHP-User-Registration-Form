@@ -1,0 +1,10 @@
+This is a CRUD project using PHP, Bootstrap, MySQL.
+
+Database: useraccounts.
+Table: users
+Attributes: id, email, password, firstname, lastname, phonenumber, address, city, province, country, school, program,
+	    educationlevel, educationstatus, graduationdate, employer, jobtitle, jobduty, workedyear, filename.
+
+Primary key: id (Auto-incremented)
+
+Run command: http://localhost/userRegistration/registration.php
